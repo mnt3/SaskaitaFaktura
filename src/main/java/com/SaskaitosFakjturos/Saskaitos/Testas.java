@@ -1,6 +1,8 @@
 package com.SaskaitosFakjturos.Saskaitos;
 
+import com.SaskaitosFakjturos.Saskaitos.model.Preke;
 import com.SaskaitosFakjturos.Saskaitos.model.Saskaita;
+import com.SaskaitosFakjturos.Saskaitos.service.PrekeService;
 import com.SaskaitosFakjturos.Saskaitos.service.SaskaitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,6 +19,8 @@ import java.util.Date;
 @Service
 public class Testas implements CommandLineRunner {
 
+    @Autowired
+    private PrekeService prekeService;
 
     @Autowired
     private SaskaitaService saskaitaService;
@@ -25,10 +29,20 @@ public class Testas implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.now();
-        Saskaita saskaita1 = new Saskaita("Siuntejas","Gavejas","numeris");
+        Saskaita saskaita1 = new Saskaita("numeris","Siuntejas","Gavejas");
 
-        Saskaita saskaita2 = new Saskaita("Siuntejas2","Gavejas2","numeris2");
+        Saskaita saskaita2 = new Saskaita("numeris2","Siuntejas2","Gavejas2");
         saskaitaService.sukurtiSaskaita(saskaita1);
         saskaitaService.sukurtiSaskaita(saskaita2);
+
+        Preke preke1 = new Preke("pienas",5,"vnt",0.85);
+        Preke preke2 = new Preke("riesutai",300,"gr",5.8);
+        Preke preke3 = new Preke("zuvis",850,"gr",15.99);
+        prekeService.sukurtiPreke(preke1);
+        prekeService.sukurtiPreke(preke2);
+        prekeService.sukurtiPreke(preke3);
+
+
+
     }
 }

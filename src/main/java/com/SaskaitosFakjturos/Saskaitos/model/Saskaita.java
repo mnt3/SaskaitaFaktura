@@ -22,7 +22,8 @@ public class Saskaita {
     public Saskaita(String localDate, String siuntejas2, String gavejas2, LocalDate numeris2) {
     }
 
-
+    public Saskaita() {
+    }
 
     public Date getData() {
         return data;
