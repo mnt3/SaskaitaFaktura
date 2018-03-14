@@ -13,4 +13,5 @@ public interface PrekeServiceInt {
     void sukurtiPreke(Preke preke);
     Long surastiPreke(String pavadinimas);
     void istrintiPreke(Long id);
+    Preke rastiPreke(Long id);
 }

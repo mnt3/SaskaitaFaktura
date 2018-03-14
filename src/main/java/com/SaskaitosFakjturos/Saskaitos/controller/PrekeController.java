@@ -1,6 +1,7 @@
 package com.SaskaitosFakjturos.Saskaitos.controller;
 
 import com.SaskaitosFakjturos.Saskaitos.model.Preke;
+import com.SaskaitosFakjturos.Saskaitos.service.PrekeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +18,16 @@ import java.util.List;
 @RequestMapping(value = "/prekes")
 public class PrekeController {
 
-    private PrekeController prekeController;
+    private PrekeService prekeService;
     @Autowired
-    public PrekeController(PrekeController prekeController) {
-        this.prekeController = prekeController;
+    public PrekeController(PrekeService prekeService) {
+        this.prekeService = prekeService;
     }
+
 
     @RequestMapping(method = RequestMethod.GET)
     List<Preke> gautiPrekes(){
-        return prekeController.gautiPrekes();
+        return prekeService.gautiPrekes();
     }
+
 }

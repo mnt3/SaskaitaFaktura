@@ -3,6 +3,9 @@ package com.SaskaitosFakjturos.Saskaitos.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by JP17-2 on 2018.03.13.
@@ -18,6 +21,16 @@ public class Saskaita {
     private String numeris;
     private String imone;
     private String gavejas;
+    @OneToMany
+    Set<Preke> prekes = new HashSet<>();
+
+    public Set<Preke> getPrekes() {
+        return prekes;
+    }
+
+    public void setPrekes(Set<Preke> prekes) {
+        this.prekes = prekes;
+    }
 
     public Saskaita(String localDate, String siuntejas2, String gavejas2, LocalDate numeris2) {
     }

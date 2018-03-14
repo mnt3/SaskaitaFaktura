@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by JP17-2 on 2018.03.13.
@@ -54,6 +55,13 @@ public class PrekeService implements PrekeServiceInt {
     public void istrintiPreke(Long id) {
     prekeRepozitory.deleteById(id);
     }
+
+    @Override
+    public Preke rastiPreke(Long id) {
+       Preke preke =  prekeRepozitory.findById(id).get();
+       return preke;
+    }
+
     public void istrintiPreke(String pavadinimas){
         prekeRepozitory.deleteById(surastiPreke(pavadinimas));
     }

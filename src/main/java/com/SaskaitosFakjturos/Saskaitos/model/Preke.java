@@ -1,9 +1,8 @@
 package com.SaskaitosFakjturos.Saskaitos.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 /**
  * Created by JP17-2 on 2018.03.13.
@@ -18,6 +17,17 @@ public class Preke {
     private int kiekis;
     private String matavimoVienetas;
     private double kaina;
+    @ManyToOne
+    @JsonIgnore
+    private Saskaita saskaita;
+
+    public Saskaita getSaskaita() {
+        return saskaita;
+    }
+
+    public void setSaskaita(Saskaita saskaita) {
+        this.saskaita = saskaita;
+    }
 
     public Preke() {
     }

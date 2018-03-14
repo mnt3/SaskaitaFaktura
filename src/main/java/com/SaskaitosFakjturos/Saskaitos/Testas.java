@@ -32,15 +32,30 @@ public class Testas implements CommandLineRunner {
         Saskaita saskaita1 = new Saskaita("numeris","Siuntejas","Gavejas");
 
         Saskaita saskaita2 = new Saskaita("numeris2","Siuntejas2","Gavejas2");
-        saskaitaService.sukurtiSaskaita(saskaita1);
-        saskaitaService.sukurtiSaskaita(saskaita2);
+
 
         Preke preke1 = new Preke("pienas",5,"vnt",0.85);
         Preke preke2 = new Preke("riesutai",300,"gr",5.8);
         Preke preke3 = new Preke("zuvis",850,"gr",15.99);
+        Preke preke4 = new Preke("mesa",850,"gr",15.99);
+        Preke preke5 = new Preke("kiausiniai",10,"vnt",15.99);
+
+        saskaita1.getPrekes().add(preke1);
+        saskaita1.getPrekes().add(preke2);
+        saskaita2.getPrekes().add(preke3);
+
+
+
         prekeService.sukurtiPreke(preke1);
         prekeService.sukurtiPreke(preke2);
         prekeService.sukurtiPreke(preke3);
+
+        saskaitaService.sukurtiSaskaita(saskaita1);
+        saskaitaService.sukurtiSaskaita(saskaita2);
+
+
+
+
 
 
 
